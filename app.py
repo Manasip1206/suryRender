@@ -4,7 +4,7 @@ import numpy as np
 import tensorflow as tf
 import tensorflow_hub as hub
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 # Load model and labels
 model = tf.keras.models.load_model("cnn_pose_classifier.h5")
@@ -93,5 +93,5 @@ def index():
 def video_feed():
     return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     app.run(debug=True)
